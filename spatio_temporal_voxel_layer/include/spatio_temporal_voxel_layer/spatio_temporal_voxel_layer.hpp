@@ -65,7 +65,7 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <sensor_msgs/point_cloud_conversion.h>
 #include <geometry_msgs/Point.h>
-#include <spatio_temporal_voxel_layer/SaveGrid.h>
+#include <spatio_temporal_voxel_layer_msgs/SaveGrid.h>
 #include <std_srvs/SetBool.h>
 // projector
 #include <laser_geometry/laser_geometry.h>
@@ -117,8 +117,8 @@ public:
   void ResetGrid(void);
 
   // Saving grids callback for openVDB
-  bool SaveGridCallback(spatio_temporal_voxel_layer::SaveGrid::Request& req, \
-                        spatio_temporal_voxel_layer::SaveGrid::Response& resp);
+  bool SaveGridCallback(spatio_temporal_voxel_layer_msgs::SaveGrid::Request& req, \
+                        spatio_temporal_voxel_layer_msgs::SaveGrid::Response& resp);
 
 private:
   // Sensor callbacks

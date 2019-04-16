@@ -18,24 +18,14 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   tf
   visualization_msgs
-  message_generation
+  spatio_temporal_voxel_layer_msgs
   dynamic_reconfigure
-)
-
-add_service_files(DIRECTORY msgs
-  FILES
-  SaveGrid.srv
 )
 
 generate_dynamic_reconfigure_options(
   cfg/SpatioTemporalVoxelLayer.cfg
 )
 
-generate_messages(
-   DEPENDENCIES
-   std_msgs
-   dynamic_reconfigure
-)
 
 find_package(PCL REQUIRED)
 find_package(OpenVDB REQUIRED)
@@ -66,6 +56,7 @@ catkin_package(
         ${TBB_INCLUDE_DIRS}
     LIBRARIES ${PROJECT_NAME}
     CATKIN_DEPENDS
+        spatio_temporal_voxel_layer_msgs
         geometry_msgs
         laser_geometry
         message_filters
@@ -95,7 +86,7 @@ add_library(${PROJECT_NAME}
             src/frustum_models/three_dimensional_lidar_frustum.cpp
             src/vdb2pc.cpp
 )
-add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_generate_messages_cpp ${PROJECT_NAME}_gencfg)
+add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg)
 target_link_libraries(${PROJECT_NAME}
   ${Boost_LIBRARIES}
   ${EIGEN3_LIBRARIES}

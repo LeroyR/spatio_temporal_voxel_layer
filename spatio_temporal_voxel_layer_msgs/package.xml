@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>spatio_temporal_voxel_layer_msgs</name>
+  <version>1.2.1</version>
+  <description>The spatio-temporal 3D obstacle costmap msgs</description>
+
+  <maintainer email="stevenmacenski@gmail.com">Steve Macenski</maintainer>
+
+ <license>LGPL v2.1</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <export>
+  </export>
+  
+</package>
