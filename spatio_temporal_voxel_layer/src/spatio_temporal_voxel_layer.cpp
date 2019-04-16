@@ -724,7 +724,7 @@ void SpatioTemporalVoxelLayer::updateBounds( \
     timeinfo = localtime (&rawtime);
     strftime(time_buffer, 100, "%F-%r", timeinfo);
 
-    spatio_temporal_voxel_layer::SaveGrid srv;
+    spatio_temporal_voxel_layer_msgs::SaveGrid srv;
     srv.request.file_name.data = time_buffer;
     SaveGridCallback(srv.request, srv.response);
   }
@@ -752,8 +752,8 @@ void SpatioTemporalVoxelLayer::updateBounds( \
 
 /*****************************************************************************/
 bool SpatioTemporalVoxelLayer::SaveGridCallback( \
-                         spatio_temporal_voxel_layer::SaveGrid::Request& req, \
-                         spatio_temporal_voxel_layer::SaveGrid::Response& resp)
+                         spatio_temporal_voxel_layer_msgs::SaveGrid::Request& req, \
+                         spatio_temporal_voxel_layer_msgs::SaveGrid::Response& resp)
 /*****************************************************************************/
 {
   boost::recursive_mutex::scoped_lock lock(_voxel_grid_lock);
